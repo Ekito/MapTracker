@@ -1,13 +1,20 @@
-This is your new Play 2.0 application
-=====================================
 
-This file will be packaged with your application, when using `play dist`.
+h1. MapTracker - a Play! 2.0 demo
 
-Javascript dependencies
-=====================================
-
-Twitter Bootstrap 2.0.1 (http://twitter.github.com/bootstrap/)
-OpenLayers 2.10 (API here : http://dev.openlayers.org/releases/OpenLayers-2.10/doc/apidocs/files/OpenLayers/Map-js.html)
+Please look at "this article":http://goo.gl/fapsG to have details.
 
 
-Icons from http://mapicons.nicolasmollet.com/
+
+h2. Javascript dependencies
+
+The following libraries have been used in the project :
+
+
+* "Twitter Bootstrap 2.0.1":http://twitter.github.com/bootstrap/
+* "OpenLayers 2.10":http://openlayers.org/ (API here: "http://dev.openlayers.org/releases/OpenLayers-2.10/doc/apidocs/files/OpenLayers/Map-js.html":http://dev.openlayers.org/releases/OpenLayers-2.10/doc/apidocs/files/OpenLayers/Map-js.html)
+
+
+
+h2. Thanks to...
+
+http://mapicons.nicolasmollet.com/ for the icons.
