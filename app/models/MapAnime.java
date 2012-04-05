@@ -17,7 +17,7 @@ import akka.actor.Props;
 import akka.actor.UntypedActor;
 
 /**
- * Les déplacements sur la carte.
+ * The moves on the map.
  * 
  * @author ndeverge
  * 
@@ -27,7 +27,7 @@ public class MapAnime extends UntypedActor {
 	static ActorRef actor = Akka.system().actorOf(new Props(MapAnime.class));
 
 	/**
-	 * Les clients enregistrés.
+	 * The registred clients.
 	 */
 	Map<String, WebSocket.Out<JsonNode>> registrered = new HashMap<String, WebSocket.Out<JsonNode>>();
 
