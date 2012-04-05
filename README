@@ -1,0 +1,13 @@
+This is your new Play 2.0 application
+=====================================
+
+This file will be packaged with your application, when using `play dist`.
+
+Javascript dependencies
+=====================================
+
+Twitter Bootstrap 2.0.1 (http://twitter.github.com/bootstrap/)
+OpenLayers 2.10 (API here : http://dev.openlayers.org/releases/OpenLayers-2.10/doc/apidocs/files/OpenLayers/Map-js.html)
+
+
+Icons from http://mapicons.nicolasmollet.com/
