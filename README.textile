@@ -1,19 +1,18 @@
 
 h1. MapTracker - a Play! 2.0 demo
 
-Please look at "this article":http://goo.gl/fapsG to have details.
+Use of Play! 2.0 (Java API) with Twitter Bootstrap, WebSockets, Akka and OpenLayers.
 
+The purpose of this project is to show a moving vehicle on a map. The location of the vehicle is sent to the server through a REST call, and the connected users can see the vehicle moving in real-time on their map.
 
+Please take a look at "this article":http://goo.gl/fapsG to have explanations.
 
 h2. Javascript dependencies
 
 The following libraries have been used in the project :
 
-
 * "Twitter Bootstrap 2.0.1":http://twitter.github.com/bootstrap/
 * "OpenLayers 2.10":http://openlayers.org/ (API here: "http://dev.openlayers.org/releases/OpenLayers-2.10/doc/apidocs/files/OpenLayers/Map-js.html":http://dev.openlayers.org/releases/OpenLayers-2.10/doc/apidocs/files/OpenLayers/Map-js.html)
-
-
 
 h2. Thanks to...
 
