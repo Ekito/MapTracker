@@ -7,6 +7,15 @@ The purpose of this project is to show a moving vehicle on a map. The location o
 
 Please take a look at "this article":http://goo.gl/fapsG to have explanations.
 
+h2. Known issue
+
+It may not work under Windows, because of a "Play bug":https://groups.google.com/forum/?fromgroups#!topic/play-framework/oCBbaeo4_4Y :
+
+bc. java.lang.RuntimeException: java.lang.RuntimeException: com.google.javascript.js
+comp.deps.SortedDependencies$MissingProvideException: module$maptracker
+
+To solve this, move @maptracker.js@ from @app/asset/javascript@ to @public/javascript@.
+
 h2. Javascript dependencies
 
 The following libraries have been used in the project :
