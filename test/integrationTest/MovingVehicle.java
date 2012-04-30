@@ -47,6 +47,10 @@ public class MovingVehicle {
 				try {
 					List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(
 							1);
+					nameValuePairs.add(new BasicNameValuePair("id",
+							"the vehicle"));
+					nameValuePairs.add(new BasicNameValuePair("timestamp",
+							String.valueOf(System.currentTimeMillis())));
 					nameValuePairs.add(new BasicNameValuePair("longitude",
 							longitude));
 					nameValuePairs.add(new BasicNameValuePair("latitude",

@@ -61,9 +61,10 @@ public class MapAnime extends UntypedActor {
 		});
 	}
 
-	public static void moveTo(float longitude, float latitude) {
+	public static void moveTo(String id, long timestamp, float longitude,
+			float latitude) {
 
-		actor.tell(new MoveMessage(longitude, latitude));
+		actor.tell(new MoveMessage(id, timestamp, longitude, latitude));
 
 	}
 
@@ -86,6 +87,8 @@ public class MapAnime extends UntypedActor {
 			for (WebSocket.Out<JsonNode> channel : registrered.values()) {
 
 				ObjectNode event = Json.newObject();
+				event.put("id", move.id);
+				event.put("timestamp", move.timestamp);
 				event.put("longitude", move.longitude);
 				event.put("latitude", move.latitude);
 
@@ -128,11 +131,18 @@ public class MapAnime extends UntypedActor {
 
 	public static class MoveMessage {
 
+		public String id;
+
+		public long timestamp;
+
 		public float longitude;
 
 		public float latitude;
 
-		public MoveMessage(float longitude, float latitude) {
+		public MoveMessage(String id, long timestamp, float longitude,
+				float latitude) {
+			this.id = id;
+			this.timestamp = timestamp;
 			this.longitude = longitude;
 			this.latitude = latitude;
 		}

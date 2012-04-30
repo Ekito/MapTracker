@@ -26,7 +26,11 @@ public class Application extends Controller {
 
 		Move move = moveForm.bindFromRequest().get();
 
-		MapAnime.moveTo(move.longitude, move.latitude);
+		if (move.id == null) {
+			return badRequest("Missing the 'id' parameter");
+		}
+
+		MapAnime.moveTo(move.id, move.timestamp, move.longitude, move.latitude);
 
 		return ok(String.valueOf(move.latitude));
 

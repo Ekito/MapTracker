@@ -38,9 +38,9 @@ $(document).ready(function() {
     var mapSocket = new WS("@routes.Application.mapsocket().webSocketURL(request)");
 	
 	mapSocket.onmessage = function(event) {
-        var data = JSON.parse(event.data);
+        var move = JSON.parse(event.data);
         
-        marker = moveMaker(map, marker, data.longitude, data.latitude);
+        marker = moveMaker(map, marker, move.longitude, move.latitude);
         
     }
 	
