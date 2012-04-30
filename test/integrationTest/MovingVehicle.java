@@ -7,7 +7,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
@@ -32,21 +34,21 @@ public class MovingVehicle {
 		int cpt = 0;
 
 		// we store the old location for the chaser vehicle
-		List<String> cache = new ArrayList<String>();
+		Queue<String> queue = new LinkedList<String>();
 
 		String line;
 		while ((line = br.readLine()) != null) {
 			String[] split = line.split(";");
 			if (split.length > 1) {
 
-				cache.add(line);
+				queue.add(line);
 
 				move("Oh no, I'm being followed !!", split);
 
 				// move the second vehicle ("the chaser")
 				// we let 20 steps ahead
 				if (cpt > 20) {
-					String chaserPosition = cache.get(cpt - 20);
+					String chaserPosition = queue.poll();
 					move("I'll catch you !!", chaserPosition.split(";"));
 				}
 
