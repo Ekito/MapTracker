@@ -63,13 +63,14 @@ $(document).ready(function() {
         	
         	// tell the client that we have a new vehicle
         	$("#newVehicle").removeClass("hide");
-        	$("#vehicleName").text("And its name is " + move.id + " !");
-        	
+        	$("#vehicleName").text("And its name is \"" + move.id + "\" !");
         	window.setTimeout(function() {
         	    $("#newVehicle").fadeTo(500, 0).slideUp(500, function(){
         	        $(this).addClass("hide"); 
         	    });
-        	}, 2000);
+        	}, 5000);
+        	
+        	
         } else {
         	marker = moveMarker(map, marker, move.id, move.longitude, move.latitude);
         }
