@@ -4,6 +4,12 @@
 <h3>Layers</h3>
 <form class="form-vertical" id="layersForm">
 </form>
+
+<div id="newVehicle" class="alert alert-block alert-info fade in hide">
+  <a class="close" data-dismiss="alert" href="#">×</a>
+  <h4 class="alert-heading">A new vehicle has joined the race!</h4>
+  <p id="vehicleName"></p>
+</div>
 }
 
 @css = {
@@ -54,6 +60,16 @@ $(document).ready(function() {
         	
         	// and add it to the list of marker
         	markers.push(marker);
+        	
+        	// tell the client that we have a new vehicle
+        	$("#newVehicle").removeClass("hide");
+        	$("#vehicleName").text("And its name is " + move.id + " !");
+        	
+        	window.setTimeout(function() {
+        	    $("#newVehicle").fadeTo(500, 0).slideUp(500, function(){
+        	        $(this).addClass("hide"); 
+        	    });
+        	}, 2000);
         } else {
         	marker = moveMarker(map, marker, move.id, move.longitude, move.latitude);
         }
