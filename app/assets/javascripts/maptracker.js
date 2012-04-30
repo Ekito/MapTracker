@@ -24,12 +24,7 @@ function addKMLLayer(aMap, aKMLPath) {
 
 function moveMarker(aMap, aMarker, aId, aLon, aLat) {
 	
-	
-    
-    if (aMarker == null) {
-    	aMarker = createMarker(aMap, aId, aLon, aLat);
-    	
-    } else {
+    if (aMarker != null) {
     	// Google.v3 uses EPSG:900913 as projection, so we have to
         // transform our coordinates
         var newLonLat = new OpenLayers.LonLat(aLon, aLat).transform(
