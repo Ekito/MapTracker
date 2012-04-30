@@ -14,7 +14,8 @@ function addKMLLayer(aMap, aKMLPath) {
                 extractAttributes: true,
                 maxDepth: 2
             })
-        })
+        }),
+        transitionEffect: 'resize'
     });
 	
 	aMap.addLayer(layer);
