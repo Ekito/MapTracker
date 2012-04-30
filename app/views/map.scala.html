@@ -31,7 +31,7 @@ $(document).ready(function() {
 	// map initialization
 	var map = initMap();
 	
-	var marker = null;
+	var markers = new Array();
 	
 	// open a WebSocket
 	var WS = window['MozWebSocket'] ? MozWebSocket : WebSocket
@@ -40,7 +40,23 @@ $(document).ready(function() {
 	mapSocket.onmessage = function(event) {
         var move = JSON.parse(event.data);
         
-        marker = moveMaker(map, marker, move.longitude, move.latitude);
+        var marker = null;
+        // search the marker
+        $.each(markers,
+        		function(intIndex, objValue){
+		        	if (move.id == objValue.id) {
+		        		marker = objValue;
+		        	}
+        });
+        if (marker == null) {
+        	// create the marker
+        	marker = createMarker(map, move.id, move.longitude, move.latitud);
+        	
+        	// and add it to the list of marker
+        	markers.push(marker);
+        } else {
+        	marker = moveMarker(map, marker, move.id, move.longitude, move.latitude);
+        }
         
     }
 	

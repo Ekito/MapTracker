@@ -22,18 +22,19 @@ function addKMLLayer(aMap, aKMLPath) {
 	return layer;
 }
 
-function moveMaker(aMap, aMarker, aLon, aLat) {
+function moveMarker(aMap, aMarker, aId, aLon, aLat) {
 	
-	// Google.v3 uses EPSG:900913 as projection, so we have to
-    // transform our coordinates
-    var newLonLat = new OpenLayers.LonLat(aLon, aLat).transform(
-            new OpenLayers.Projection("EPSG:4326"),
-            aMap.getProjectionObject());
+	
     
     if (aMarker == null) {
-    	aMarker = createMarker(aMap, newLonLat);
+    	aMarker = createMarker(aMap, aId, aLon, aLat);
     	
     } else {
+    	// Google.v3 uses EPSG:900913 as projection, so we have to
+        // transform our coordinates
+        var newLonLat = new OpenLayers.LonLat(aLon, aLat).transform(
+                new OpenLayers.Projection("EPSG:4326"),
+                aMap.getProjectionObject());
     
 	    var newPx = aMap.getLayerPxFromLonLat(newLonLat);
 	    aMarker.moveTo(newPx);
@@ -43,13 +44,20 @@ function moveMaker(aMap, aMarker, aLon, aLat) {
 	
 }
 
-function createMarker(aMap, aLonLat) {
+function createMarker(aMap, aId, aLon, aLat) {
+	
+	// Google.v3 uses EPSG:900913 as projection, so we have to
+    // transform our coordinates
+    var newLonLat = new OpenLayers.LonLat(aLon, aLat).transform(
+            new OpenLayers.Projection("EPSG:4326"),
+            aMap.getProjectionObject());
 	
 	var size = new OpenLayers.Size(32,37);
     var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
     var icon = new OpenLayers.Icon('/assets/images/map-marker.png',size,offset);
-    var marker = new OpenLayers.Marker(aLonLat,icon);
+    var marker = new OpenLayers.Marker(newLonLat,icon);
     marker.map = aMap;
+    marker.id = aId;
     
     aMap.getLayer("Markers").addMarker(marker);
     
