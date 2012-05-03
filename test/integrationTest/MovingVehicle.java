@@ -52,7 +52,7 @@ public class MovingVehicle {
 					move("I'll catch you !!", chaserPosition.split(";"));
 				}
 
-				Thread.sleep(100);
+				Thread.sleep(10);
 			}
 			cpt++;
 
@@ -81,7 +81,7 @@ public class MovingVehicle {
 
 		HttpClient client = new DefaultHttpClient();
 
-		HttpPost post = new HttpPost("http://localhost:9000/moveTo");
+		HttpPost post = new HttpPost("http://maptracker-ndeverge.dotcloud.com/moveTo");
 		try {
 			// move the first vehicle ("the victim")
 			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
