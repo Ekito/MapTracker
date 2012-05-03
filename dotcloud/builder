@@ -1,0 +1,45 @@
+#!/bin/bash
+set -e
+BUILDROOT="$(dirname "$0")"
+
+echo 'Checking if Play framework is already installed...'
+if [ -d ~/play-2.0 ]
+then
+    echo 'Play framework found.'
+else
+    echo 'Play framework not found. Installing it...'
+    echo '- Download Play framework'
+    curl -O http://download.playframework.org/releases/play-2.0.zip
+    if [ -e play-2.0.zip ]
+    then
+        echo '- Unzip downloaded file'
+        unzip -q play-2.0.zip
+        if [ -d play-2.0 ]
+        then
+            echo '- Copy play installation'
+            cp -R ./play-2.0 ~/play-2.0
+            echo 'Play installed.'
+        else
+            echo 'Unzip failed !'
+        fi
+    else
+        echo 'Download failed !'
+    fi
+fi
+
+echo 'Installing application'
+rm -rf ~/application
+cp -R  ./$SERVICE_APPROOT ~/application
+
+echo 'Symlinking application logs to Supervisor area...'
+rm -rf ~/application/logs
+ln -s /var/log/supervisor ~/application/logs
+
+echo  'Installing run script...'
+cp "$BUILDROOT/run" ~
+
+echo 'Building the Play application'
+cd ~/application
+~/play-2.0/play clean compile stage
+
+echo 'Build complete.'

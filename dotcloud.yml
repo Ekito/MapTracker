@@ -1,0 +1,7 @@
+play:
+  type: custom
+  buildscript: dotcloud/builder
+  ports:
+    www: http
+  process: ~/run
+  approot: .
