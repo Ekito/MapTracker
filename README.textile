@@ -23,6 +23,21 @@ The following libraries have been used in the project :
 * "Twitter Bootstrap 2.0.1":http://twitter.github.com/bootstrap/
 * "OpenLayers 2.10":http://openlayers.org/ (API here: "http://dev.openlayers.org/releases/OpenLayers-2.10/doc/apidocs/files/OpenLayers/Map-js.html":http://dev.openlayers.org/releases/OpenLayers-2.10/doc/apidocs/files/OpenLayers/Map-js.html)
 
+h2. Deployment on dotCloud
+
+dotCloud is a PAAS platform running in the cloud, and it actually supports WebSockets.
+
+Thanks to "Mariot Chauvin":https://github.com/mchv and its "template":https://github.com/mchv/play2-on-dotcloud, the project is running on DotCloud: "http://maptracker-ndeverge.dotcloud.com/":http://maptracker-ndeverge.dotcloud.com/ 
+
+The commands to deploy are:
+bc. $ dotcloud push --all maptracker
+
+And a list of useful commands:
+
+bc. $ dotcloud list
+$ dotcloud logs maptracker.play
+$ dotcloud ssh maptracker.play
+
 h2. Thanks to...
 
 http://mapicons.nicolasmollet.com/ for the icons.
