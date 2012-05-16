@@ -30,6 +30,7 @@ dotCloud is a PAAS platform running in the cloud, and it actually supports WebSo
 Thanks to "Mariot Chauvin":https://github.com/mchv and its "template":https://github.com/mchv/play2-on-dotcloud, the project is running on DotCloud: "http://maptracker-ndeverge.dotcloud.com/":http://maptracker-ndeverge.dotcloud.com/ 
 
 The commands to deploy are:
+
 bc. $ dotcloud push --all maptracker
 
 And a list of useful commands:
