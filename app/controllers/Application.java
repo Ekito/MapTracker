@@ -5,7 +5,6 @@ import models.Move;
 
 import org.codehaus.jackson.JsonNode;
 
-import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.WebSocket;
@@ -22,7 +21,7 @@ public class Application extends Controller {
 	}
 
 	public static Result moveTo() {
-		Form<Move> moveForm = form(Move.class);
+		play.data.Form<Move> moveForm = play.data.Form.form(Move.class);
 
 		Move move = moveForm.bindFromRequest().get();
 
@@ -44,8 +43,8 @@ public class Application extends Controller {
 
 			// Called when the Websocket Handshake is done.
 			@Override
-			public void onReady(WebSocket.In<JsonNode> in,
-					WebSocket.Out<JsonNode> out) {
+			public void onReady(final WebSocket.In<JsonNode> in,
+					final WebSocket.Out<JsonNode> out) {
 
 				try {
 
